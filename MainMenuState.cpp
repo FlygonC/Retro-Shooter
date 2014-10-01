@@ -4,6 +4,7 @@
 #include "AIE.h"
 #include "BaseState.h"
 #include "StateMachine.h"
+#include "GameState.h"
 
 extern const int screenWidth;
 extern const int screenHeight;
@@ -16,6 +17,9 @@ void MainMenuState::Initialize() {
 	MoveSprite(MenuScreenBG, screenWidth / 2, screenHeight / 2);
 }
 void MainMenuState::Update(float fTimeStep, StateMachine* pSM) {
+	if (IsKeyDown(257)) {
+		delete pSM->SwitchState(new GameState);
+	}
 }
 void MainMenuState::Draw() {
 	DrawSprite(MenuScreenBG);

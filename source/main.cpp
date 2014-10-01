@@ -7,17 +7,18 @@
 #include <iostream>
 #include "StateMachine.h"
 #include "MainMenuState.h"
+#include "Controler.h"
 
-extern const int screenWidth = 800;
+extern const int screenWidth = 400;
 extern const int screenHeight = 600;
+
+extern bool GameFinished = false; \
 
 int main( int argc, char* argv[] )
 {	
 	Initialise(screenWidth, screenHeight, false, "Plane Game");
 	
     SetBackgroundColour(SColour(0, 30, 100, 255));
-
-	bool GameFinished = false;
 
 	StateMachine state;
 	state.PushState(new MainMenuState);
@@ -38,7 +39,6 @@ int main( int argc, char* argv[] )
     } while(!FrameworkUpdate() && GameFinished == false);
 
 	//Memory clean up
-	
 
     Shutdown();
 

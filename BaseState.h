@@ -2,6 +2,7 @@
 
 class StateMachine;
 /*
+BaseState is the abstract base class for states to be handled by the StateMachine Class
 */
 class BaseState {
 public:
