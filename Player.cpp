@@ -34,6 +34,19 @@ void Player::Actions(float DeltaT, Controler* control) {
 		x -= speed*DeltaT;
 	}
 
+	if (y >= 600 - 20) {
+		y = 600 - 20;
+	}
+	if (y <= 0 + 20) {
+		y = 0 + 20;
+	}
+	if (x >= 400 - 20) {
+		x = 400 - 20;
+	}
+	if (x <= 0 + 20) {
+		x = 0 + 20;
+	}
+
 	if (fireCoolDown > 0) {
 		fire = false;
 		fireCoolDown -= DeltaT;

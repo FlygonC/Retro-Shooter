@@ -9,6 +9,8 @@ public:
 
 	void Actions(float DeltaT);
 
+	void setOffset(float fOffset);
+
 	bool live;
 private:
 	float speed;

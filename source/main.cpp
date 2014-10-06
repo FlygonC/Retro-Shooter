@@ -12,16 +12,20 @@
 extern const int screenWidth = 400;
 extern const int screenHeight = 600;
 
-extern bool GameFinished = false; \
+extern bool GameFinished = false;
 
 int main( int argc, char* argv[] )
 {	
 	Initialise(screenWidth, screenHeight, false, "Plane Game");
 	
-    SetBackgroundColour(SColour(0, 30, 100, 255));
+	//SetBackgroundColour(SColour(0, 30, 100, 255));
+	SetBackgroundColour(SColour(0, 0, 0, 255));
+
+	srand(time(NULL));
 
 	StateMachine state;
 	state.PushState(new MainMenuState);
+
 
     //Game Loop
     do {

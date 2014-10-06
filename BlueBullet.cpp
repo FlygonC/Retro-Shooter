@@ -12,7 +12,7 @@ BlueBullet::BlueBullet(void) {
 
 	speed = 800;
 	offset = 0;
-	live = true;
+	live = false;
 }
 BlueBullet::~BlueBullet(void) {
 	DestroySprite(spriteID);
@@ -26,4 +26,8 @@ void BlueBullet::Actions(float DeltaT) {
 			live = false;
 		}
 	}
+}
+
+void BlueBullet::setOffset(float fOffset) {
+	offset = fOffset;
 }
