@@ -1,7 +1,6 @@
 #pragma once
 
 #include "BlueBullet.h"
-#include "AIE.h"
 
 BlueBullet::BlueBullet(void) {
 	width = 4;

@@ -22,7 +22,9 @@ void MainMenuState::Update(float fTimeStep, StateMachine* pSM) {
 	}
 }
 void MainMenuState::Draw() {
-	DrawSprite(MenuScreenBG);
+	//DrawSprite(MenuScreenBG);
+	DrawString("Press Enter to start", 0, 60);
+	DrawString("Press Esc to quit", 0, 30);
 }
 void MainMenuState::Destroy() {
 	DestroySprite(MenuScreenBG);

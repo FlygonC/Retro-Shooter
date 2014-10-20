@@ -93,9 +93,11 @@
     <ClCompile Include="BlueBullet.cpp" />
     <ClCompile Include="Controler.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="GameEndState.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RedBullet.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="StateMachine.cpp" />
@@ -105,11 +107,16 @@
     <ClInclude Include="BlueBullet.h" />
     <ClInclude Include="Controler.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="GameEndState.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="RedBullet.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="StateMachine.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

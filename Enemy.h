@@ -1,21 +1,28 @@
 #pragma once
 
 #include "Sprite.h"
+#include "AIE.h"
+#include "Sprite.h"
+//#include "GameState.h"
+#include <cstdlib>
 
-enum enemyType {target};
+enum enemyType {target,sideFlier,bottomChaser,topEnemy,sideShooter};
 
 class Enemy : public Sprite {
 public:
-	Enemy();
-	~Enemy();
+	Enemy(void);
+	~Enemy(void);
 
 	void Actions(float fTimeStep);
-	void Spawn(enemyType type, float sX, float sY);
+	void Spawn(enemyType stype, float sX, float sY);
 
-	bool live = true;
+	bool GetFire();
+	bool live = false;
 	float hp;
-protected:
 	enemyType type;
+protected:
+	float xSpeed;
+	float ySpeed;
 	float fireSpeed;
 	float fireCoolDown;
 	bool fire;

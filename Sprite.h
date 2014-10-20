@@ -5,14 +5,14 @@ public:
 	Sprite(void);
 	~Sprite(void);
 
-	virtual unsigned int GetSpriteID();
-	virtual float GetWidth();
-	virtual float GetHeight();
-	virtual float GetX();
-	virtual float GetY();
-	virtual void SetX(float sX);
-	virtual void SetY(float sY);
-	virtual void SetPosition(float sX, float sY);
+	unsigned int GetSpriteID();
+	float GetWidth();
+	float GetHeight();
+	float GetX();
+	float GetY();
+	void SetX(float sX);
+	void SetY(float sY);
+	void SetPosition(float sX, float sY);
 protected:
 	unsigned int spriteID;
 	float width;

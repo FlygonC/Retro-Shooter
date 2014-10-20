@@ -12,6 +12,8 @@
 extern const int screenWidth = 400;
 extern const int screenHeight = 600;
 
+extern float score;
+
 extern bool GameFinished = false;
 
 int main( int argc, char* argv[] )
@@ -43,6 +45,8 @@ int main( int argc, char* argv[] )
     } while(!FrameworkUpdate() && GameFinished == false);
 
 	//Memory clean up
+
+	delete state.PopState();
 
     Shutdown();
 

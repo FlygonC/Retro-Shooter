@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Sprite.h"
+#include "AIE.h"
 
 class BlueBullet : public Sprite {
 public:
