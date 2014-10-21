@@ -76,8 +76,8 @@ void GameState::Wave0(float fTimeStep) {
 void GameState::Wave1(float fTimeStep) {
 	waveTime += fTimeStep;
 	waveStep += fTimeStep;
-	if (waveStep >= 0.5) {
-		waveStep -= 0.5;
+	if (waveStep >= 0.8) {
+		waveStep -= 0.8;
 		enemies[enemyCounter]->Spawn(sideFlier, 0, 0);
 		enemyCounter++;
 		if (enemyCounter >= maxEnemies) {
@@ -102,8 +102,8 @@ void GameState::Wave2(float fTimeStep) {
 void GameState::Wave3(float fTimeStep) {
 	waveTime += fTimeStep;
 	waveStep += fTimeStep;
-	if (waveStep >= 1) {
-		waveStep -= 1;
+	if (waveStep >= 0.6) {
+		waveStep -= 0.6;
 		enemies[enemyCounter]->Spawn(topEnemy, 0, 0);
 		enemyCounter++;
 		if (enemyCounter >= maxEnemies) {
