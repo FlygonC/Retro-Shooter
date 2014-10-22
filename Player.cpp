@@ -53,7 +53,7 @@ void Player::Actions(float DeltaT, Controler* control) {
 	}
 	if (control->FIRE == true && fireCoolDown <= 0) {
 		fire = true;
-		fireCoolDown += 0.08f;
+		fireCoolDown += 0.07f;
 		//y -= 1;
 	}
 }

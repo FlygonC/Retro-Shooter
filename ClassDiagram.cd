@@ -37,6 +37,9 @@
   </Class>
   <Class Name="GameState">
     <Position X="2.75" Y="12.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
       <Typedef Name="GameState::EW" Collapsed="true">
         <TypeIdentifier>
@@ -87,7 +90,7 @@
   <Enum Name="enemyType">
     <Position X="5" Y="9" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAAAAgAAAAAIAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>CAgAAAAAAAgAAAAAIAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Enemy.h</FileName>
     </TypeIdentifier>
   </Enum>

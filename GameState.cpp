@@ -131,7 +131,7 @@ void GameState::Update(float fTimeStep, StateMachine* pSM) {
 
 	player->Actions(fTimeStep, controls);
 	MoveSprite(player->GetSpriteID(), player->GetX(), player->GetY());
-
+	//Enemy wave function call
 	(this->*EnemyWave)(fTimeStep);
 	//enemys for loop
 	for (int i = 0; i <= maxEnemies-1; i++) {
