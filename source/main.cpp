@@ -1,4 +1,6 @@
-﻿#include "AIE.h"
+﻿//Program by Ryan Floyd
+
+#include "AIE.h"
 #include <string>
 #include <cmath>
 #include <time.h>
