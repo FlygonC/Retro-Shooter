@@ -13,4 +13,6 @@ public:
 	void Destroy();
 private:
 	unsigned int MenuScreenBG;
+	int screen;
+	
 };

@@ -13,6 +13,8 @@
 #include <cstdlib>
 #include "GameEndState.h"
 
+//extern unsigned int splashScreen;
+
 class GameState : public BaseState {
 	typedef void(GameState::*EW)(float fTimeStep);
 public:

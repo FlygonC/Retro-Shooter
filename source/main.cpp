@@ -11,6 +11,7 @@
 
 extern const int screenWidth = 400;
 extern const int screenHeight = 600;
+//extern unsigned int splashScreen = 0;
 
 extern float score;
 
@@ -28,6 +29,8 @@ int main( int argc, char* argv[] )
 	StateMachine state;
 	state.PushState(new MainMenuState);
 
+	//splashScreen = CreateSprite("./images/splashscreen.png", screenWidth, screenHeight, false);
+	//MoveSprite(splashScreen, 0, 0);
 
     //Game Loop
     do {

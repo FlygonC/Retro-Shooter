@@ -11,7 +11,7 @@ void StateMachine::PushState(BaseState* gameState) {
 	stateStack.push_back(gameState);
 	gameState->Initialize();
 }
-//PopState removes the top state from the list and returns for deletion
+//PopState removes the top(bottom) state from the list and returns for deletion
 BaseState* StateMachine::PopState() {
 	//lastState is pointing to the derivitive of BaseState that is on the bottom of the list
 	BaseState* lastState = stateStack.back();
@@ -33,6 +33,7 @@ BaseState* StateMachine::SwitchState(BaseState* gameState) {
 }
 //Calls the Update() of the current state(derivitive of BaseState(as all))
 void StateMachine::Update(float fTimeStep) {
+	//TimeStep is passed on from the StateMachine Update() as well as passing itself into the StateStack Update()
 	stateStack.back()->Update(fTimeStep, this);
 }
 //Calls the Draw() of the current state

@@ -11,6 +11,10 @@ GameState::GameState(void) {}
 GameState::~GameState(void) {}
 
 void GameState::Initialize() {
+	unsigned int splashScreen = CreateSprite("./images/splashscreen.png", screenWidth, screenHeight, false);
+	MoveSprite(splashScreen, 0, 0);
+	DrawSprite(splashScreen);
+
 	player = new Player();
 	score = 0;
 	lives = 20;
@@ -19,7 +23,7 @@ void GameState::Initialize() {
 		enemies[i] = new Enemy();
 	}
 	enemyCounter = 0;
-
+	//waves are not in order by number
 	GameState::EnemyWave = &GameState::Wave3;
 	currentWave = 1;
 	waveTime = 0;
@@ -38,7 +42,7 @@ void GameState::Initialize() {
 	controls = new Controler();
 	controls->setKeys(265, 264, 263, 262, 32);
 }
-
+//bullet creation functions
 void GameState::playerFireBullets(float fX, float fY, float fOffset) {
 	playerBullets[playerBulletCounter]->SetPosition(player->GetX() + fX, player->GetY() + fY);
 	playerBullets[playerBulletCounter]->setOffset(fOffset);
@@ -59,7 +63,7 @@ void GameState::enemyFireBullets(float fX, float fY, float sXSpeed, float sYSpee
 		enemyBulletCounter = 0;
 	}
 }
-
+//test wave
 void GameState::Wave0(float fTimeStep) {
 	waveTime += fTimeStep;
 	waveStep += fTimeStep;
@@ -73,6 +77,7 @@ void GameState::Wave0(float fTimeStep) {
 		}
 	}
 }
+//Enemy waves
 void GameState::Wave1(float fTimeStep) {
 	waveTime += fTimeStep;
 	waveStep += fTimeStep;
@@ -158,12 +163,13 @@ void GameState::Update(float fTimeStep, StateMachine* pSM) {
 			case sideShooter:
 				enemyFireBullets(enemies[i]->GetX(), enemies[i]->GetY(), 30, -80);
 				enemyFireBullets(enemies[i]->GetX(), enemies[i]->GetY(), -30, -80);
-				enemyFireBullets(enemies[i]->GetX(), enemies[i]->GetY(), 0, 30);
+				enemyFireBullets(enemies[i]->GetX(), enemies[i]->GetY(), 0, 50);
 				break;
 			}
 		}
 		//collision with player bullets
 		for (int j = 0; j <= maxPlayerBullets-1; j++) {
+			//circle collision
 			if (sqrt((enemies[i]->GetX() - playerBullets[j]->GetX())*(enemies[i]->GetX() - playerBullets[j]->GetX()) + (enemies[i]->GetY() - playerBullets[j]->GetY())*(enemies[i]->GetY() - playerBullets[j]->GetY())) <= 20 /*sqrt(enemies[i]->GetWidth())*/
 				&& enemies[i]->live == true && playerBullets[j]->live == true) {
 				playerBullets[j]->live = false;
@@ -172,6 +178,7 @@ void GameState::Update(float fTimeStep, StateMachine* pSM) {
 				}
 				enemies[i]->hp -= 1;
 			}
+			//square collision
 			/*if (abs(playerBullets[j]->GetX() - enemies[i]->GetX()) <= enemies[i]->GetWidth() / 2 && abs(playerBullets[j]->GetY() - enemies[i]->GetY()) <= enemies[i]->GetHeight() / 2
 				&& enemies[i]-> live == true && playerBullets[j]->live == true) {
 				playerBullets[j]->live = false;
@@ -179,7 +186,7 @@ void GameState::Update(float fTimeStep, StateMachine* pSM) {
 			}*/
 		}
 	}
-
+	//if player is shooting
 	if (player->GetFire() == true) {
 		//playerFireBullets(0, 18, 0);
 		playerFireBullets(12, 0, 0);
@@ -187,7 +194,7 @@ void GameState::Update(float fTimeStep, StateMachine* pSM) {
 		//playerFireBullets(14, 6, 100);
 		//playerFireBullets(-14, 6, -100);
 	}
-	//player bullets actions
+	//player bullets actions for loop
 	for (int i = 0; i <= maxPlayerBullets-1; i++) {
 		playerBullets[i]->Actions(fTimeStep);
 		MoveSprite(playerBullets[i]->GetSpriteID(), playerBullets[i]->GetX(), playerBullets[i]->GetY());
@@ -210,27 +217,31 @@ void GameState::Update(float fTimeStep, StateMachine* pSM) {
 	}
 }
 void GameState::Draw() {
+	//draw enemies
 	for (int i = 0; i <= maxEnemies-1; i++) {
 		if (enemies[i]->live == true) {
 			DrawSprite(enemies[i]->GetSpriteID());
 		}
 	}
+	//draw player bullets
 	for (int i = 0; i <= maxPlayerBullets-1; i++) {
 		if (playerBullets[i]->live == true) {
 			DrawSprite(playerBullets[i]->GetSpriteID());
 		}
 	}
+	//draw enemy bullets
 	for (int i = 0; i <= maxEnemyBullets - 1; i++) {
 		if (enemyBullets[i]->live == true) {
 			DrawSprite(enemyBullets[i]->GetSpriteID());
 		}
 	}
+	//draw player
 	DrawSprite(player->GetSpriteID());
-
+	//draw score
 	char buffer1[20];
 	itoa(score, buffer1, 10);
 	DrawString(buffer1, 0, 30);
-
+	//draw lives
 	char buffer2[4];
 	itoa(lives, buffer2, 10);
 	DrawString(buffer2, 360, 30);
