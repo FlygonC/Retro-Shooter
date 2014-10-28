@@ -48,7 +48,7 @@ int main( int argc, char* argv[] )
     } while(!FrameworkUpdate() && GameFinished == false);
 
 	//Memory clean up
-
+	ClearScreen();
 	delete state.PopState();
 
     Shutdown();
